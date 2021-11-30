@@ -6,9 +6,13 @@ const app = express();
 const { PORT = 3000 } = process.env;
 app.get('/', (req: Request, res: Response) => {
   res.send({
-    message: 'hello nodemon',
+    message: 'hello express',
   });
 });
-app.listen(PORT, () => {
-  console.log('server started at http://localhost:' + PORT);
-});
+if (require.main === module) {
+  // true if file is executed
+  app.listen(PORT, () => {
+    console.log('server started at http://localhost:' + PORT);
+  });
+}
+export default app;
