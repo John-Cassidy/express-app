@@ -4,9 +4,12 @@ import { Request, Response } from 'express';
 
 const app = express();
 const { PORT = 3000 } = process.env;
+
+const runningMessage: string = `Server is up and running on port: ${PORT}`;
+
 app.get('/', (req: Request, res: Response) => {
   res.send({
-    message: 'hello express',
+    message: runningMessage,
   });
 });
 if (require.main === module) {
