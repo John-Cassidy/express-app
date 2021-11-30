@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const { NODE_ENV = 'production' } = process.env;
 module.exports = {
   entry: './src/index.ts',
+  watch: NODE_ENV === 'development',
   mode: NODE_ENV,
   target: 'node',
   output: {
